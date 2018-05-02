@@ -15,9 +15,9 @@ func jobcanTouch(ctx context.Context, c config.Config) (string, error) {
 	if !c.Valid() {
 		return "", errors.Errorf("Not enough credential given")
 	}
-	mode := os.Getenv("JOBCAN_AID")
+	mode := os.Getenv("JOBCAN_ADIT")
 	if len(mode) == 0 {
-		return "", errors.Errorf("env var JOBCAN_AID is empty")
+		return "", errors.Errorf("env var JOBCAN_ADIT is empty")
 	}
 
 	a := account.New(c)

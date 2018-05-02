@@ -1,7 +1,7 @@
 # jobcan-lambda
 
 Simple [AWS Lambda](https://aws.amazon.com/lambda/) function to record your work attendance to [Jobcan](https://jobcan.ne.jp/).
-This enable you to build GPS-based automatic attendance recording system using [IFTTT](https://ifttt.com).
+This enables you to build a GPS-based automatic attendance recording system using [IFTTT](https://ifttt.com).
 
 ## Installation
 

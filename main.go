@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"os"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -20,10 +21,13 @@ func jobcanTouch(ctx context.Context, c config.Config) (string, error) {
 	}
 
 	a := account.New(c)
-	// TODO: get errors
-	a.Login()
-	a.ExecAttendance(mode)
-	return "", nil
+	if err := a.Login(); err != nil {
+		return "", errors.Wrap(err, "failed to login")
+	}
+	if err := a.ExecAttendance(mode); err != nil {
+		return "", errors.Wrap(err, "failed to record")
+	}
+	return fmt.Sprintf("Your \"%s\" has successfully been recorded.", mode), nil
 }
 
 func main() {
